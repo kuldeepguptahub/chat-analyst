@@ -1,25 +1,77 @@
 import streamlit as st
+from src.process import parse_chat
+from io import StringIO
 
+# Initialize
+raw_data = None
+
+# Taking User Inputs
 with st.sidebar:
-    st.title('Upload a chat')
-    st.write('Multi-file upload is not supported at the moment. Upload one file only.')
+    st.title("Upload a Chat")
+    st.write("Multi-file upload is not supported at the moment.")
 
-    input_text = st.text_area(label='paste your chat here...')
+    input_text = st.text_area("Paste your chat here...")
+
+    submitted = st.button("Analyze")
+
+    st.subheader("Or")
+
+    text_file = st.file_uploader(
+        label="Upload a file",
+        type="txt",
+        accept_multiple_files=False
+    )
+
+# Tabs
+tab1, tab2, tab3 = st.tabs(["Home", "Raw", "Processed Data"])
+
+# Tab 1: Home
+with tab1:
+    col1, col2 = st.columns(2, gap='small', border=True)
+
+    # column 1
+    with col1:
+        if input_text.strip():
+            st.write(input_text)
+        else:
+            st.info("No text input provided.")
     
-    st.subheader('Or')
+    # column 1
+    with col2:
+        if text_file is not None:
+            content = text_file.read().decode("utf-8").strip()
+            if content:
+                st.write(content)
+            else:
+                st.warning("Uploaded file is empty.")
+        else:
+            st.info("No file uploaded.")
 
-    text_file = st.file_uploader(label='Upload a file here',
-                     accept_multiple_files=False,
-                     type='txt',
-                     )
+# Tab 2: Raw Data
+with tab2:
+    st.title("Raw Data")
 
-col1, col2 = st.columns(2, gap = 'small', border=True)
+    if input_text.strip():
+        raw_data = input_text.strip()
+        st.write(raw_data)
 
-with col1:
-    if input_text:
-        st.write(input_text)
+    elif text_file is not None:
+        stringio = StringIO(text_file.getvalue().decode("utf-8"))
+        content = stringio.read().strip()
+        if content:
+            raw_data = content
+            st.write(raw_data)
+        else:
+            st.warning("Uploaded file is empty.")
+    else:
+        st.write("Upload chat data for analysis.")
 
-with col2:
-    if text_file:
-        st.write(text_file.read())
-        
+# Tab 3: Processed Data
+with tab3:
+    st.title("Processed Data")
+
+    if raw_data:
+        parsed = parse_chat(raw_data)
+        st.json(parsed)
+    else:
+        st.write("Upload chat data for analysis.")
