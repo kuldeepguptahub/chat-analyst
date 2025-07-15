@@ -1,6 +1,9 @@
+import sys
+from pathlib import Path
 import streamlit as st
 from src.process import parse_chat
 from io import StringIO
+from llm_engine.models.feedback_engine import get_feedback_from_chat
 
 # Initialize
 raw_data = None
@@ -32,7 +35,9 @@ with tab1:
     # column 1
     with col1:
         if input_text.strip():
-            st.write(input_text)
+            cleaned_chat = parse_chat(input_text)
+            feedback = get_feedback_from_chat(cleaned_chat)
+            st.write(feedback)
         else:
             st.info("No text input provided.")
     
@@ -41,7 +46,9 @@ with tab1:
         if text_file is not None:
             content = text_file.read().decode("utf-8").strip()
             if content:
-                st.write(content)
+                cleaned_chat = parse_chat(content)
+                feedback = get_feedback_from_chat(cleaned_chat)
+                st.write(feedback)
             else:
                 st.warning("Uploaded file is empty.")
         else:
