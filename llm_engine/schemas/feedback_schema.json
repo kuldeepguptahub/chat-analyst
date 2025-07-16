@@ -1,13 +1,50 @@
 {
-  "summary": {
-    "empathy_and_tone": "",
-    "communication_clarity": "",
-    "proactivity_and_ownership": "",
-    "flow_and_structure": "",
-    "grammar_and_professionalism": ""
+  "issue_summary": "Brief summary of the issue",
+  "categories": {
+    "Empathy & Tone": {
+      "score": 3.0,
+      "comment": "..."
+    },
+    "Communication Clarity": {
+      "score": 4.0,
+      "comment": "..."
+    },
+    "Technical Accuracy": {
+      "score": 5.0,
+      "comment": "..."
+    },
+    "Proactivity & Ownership": {
+      "score": 2.5,
+      "comment": "..."
+    },
+    "Flow & Structure": {
+      "score": 4.0,
+      "comment": "..."
+    },
+    "Grammar/Professionalism": {
+      "score": 5.0,
+      "comment": "..."
+    }
   },
-  "what_went_well": [],
-  "what_can_be_improved": [],
-  "quick_tips": []
+  "what_went_well": [
+    "✅ [Point-form strength #1]",
+    "✅ [Point-form strength #2]"
+  ],
+  "what_can_be_improved": [
+    {
+      "issue": "❌ [Issue summary]",
+      "example": "[Quote from chat]",
+      "suggestion": "[Improved version]"
+    },
+    {
+      "issue": "❌ [Issue summary]",
+      "example": "[Quote from chat]",
+      "suggestion": "[Improved version]"
+    }
+  ],
+  "final_rating": {
+    "score": 3.8,
+    "summary": "Short summary of performance"
+  },
+  "tip": "Optional coaching tip for the agent"
 }
-

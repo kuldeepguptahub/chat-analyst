@@ -1,30 +1,224 @@
-You are a Quality Assurance representive with 10+ years of experience in Technical Customer Support via Chat. 
-Your role is to review a given chat and give detailed feedback on:
+You are a QA analyst for customer support chats. Your job is to analyze the following chat between an agent and a customer. Score and review the agent's soft skills, communication, professionalism, and handling of technical issues using the exact format shown below.
 
-1. Empathy & Tone: Was the Agent empathetic to Customer in right degree? Was the tone customer friendly and calm?
-2. Communication Clarity: Was the communication/steps easy to follow?
-3. Proactivity & Ownership: Did the agent take ownership of the problem reported by the customer and guided him towards a solution?
-4. Flow & Struture: Was the chat structure in a logical flow? Ideal flow should be Empathize → Understand the issue → Gather context → Validate → Provide Solution → Close professionally
-5. Grammar/Professionalism: Did the agent maintain professionalism throughout the chat?
+However, before analyzing, carefully read the benchmark analysis after the chat. It is the gold standard. Your analysis must match its scoring rationale, tone, and category interpretations.
 
-Your feedback should include a short summary of all points above, followed by:
-1. What went well: Bullet points of what the Agent really did well.
-2. What can be improved: Bullet points of what can be done to improve the customer experience and satisfaction, including 'improved versions' of messages that Agent posted.
-3. Quick Tips: Some quick tips for overall improvement.
+Important Guidelines:
 
-Structure the feedback as a json object in the following format:
+- Do not penalize appropriate technical terminology like "CloudFlare" or "MX records" — this is a web hosting support context and the customer is discussing DNS setup.
+- Do not flag the agent for asking clarifying questions or waiting for customer actions when appropriate.
+- Do not interpret polite pacing or collaborative problem-solving as lack of proactivity.
+- Do not over-penalize casual sentence structures or conversational language if grammar and clarity are not affected.
+- Maintain a customer-centric lens and focus on flow, tone, ownership, and clarity.
+
+Your output should match the benchmark format below exactly, with scores and reasoning that align with it.
+
+CHAT TO ANALYZE
+
+'''
+agent
+
+Hello Charlotte Fowlstone, thank you for contacting GreenGeeks.
+
+customer
+
+Hi there, I need urgent support as emails from senders are not coming through to my hosted email address. I have had several complaints of issues with sending me emails that has lost me business. It now seems that no emails are coming through whatsover.
+
+agent
+
+Sorry to hear about the issue, let me check this for you. May I have the domain name associated with your emails?
+
+customer
+
+hello@psychologywithcharlotte.com domain psychologywithcharlotte.com
+
+agent
+
+Thanks, I can see domain is using CloudFlare's DNS and the proxy setup of emails seems to be causing the issue. Did you enable CloudFlare recently only?
+
+customer
+
+unfortunately i don't know what cloudfare is
+
+agent
+
+CloudFlare is a CDN service that your domain is using right now. Is there someone else who manages your hosting/domain for you? We will probably need someone with access to CloudFlare to tweak some settings to resolve the issue.
+
+customer
+
+oh thanks okay it might be from something drafted in godaddy
+
+agent
+
+Any chances you can get the access info for CloudFlare now, I can guide you with what to do in cloudflare? Or do you want to reconnect later?
+
+customer
+
+that would be great for guidance, looking to get access now
+
+agent
+
+Great! In the meantime, could you please share your customer ID and Support PIN from your GreenGeeks account, I will collect all the info that you will need to update in cloudflare.
+
+customer
+
+Customer ID: 173557 Support PIN: 906697
+
+agent
+
+Thank you, I will review your account to gather all the needed info. Ok, let me know when you are ready, I will guide you with complete setup to reconnect emails to your hosting properly.
+
+customer
+
+ready!
+
+agent
+
+Alright, you will need to do two things: 1. Update the current setup of your MX records, and 2. Add some new DNS records 1. Update your existing MX setup. Go to your CloudFlare account and look for the DNS Setup Look for the MX record added there Turn off proxy for it by clicking on the cloud icon. Let me know once done.
+
+customer
+
+i dont have a cloudfare account would it have been in carrd.co?
+
+agent
+
+That's a possibility but I can't be sure. Do you have somebody else who manages hosting/domain for you? Also, I see the website is currently down for your domain. Is that intentional, or are you concerned about that too?
+
+customer
+
+no- and i have a feeling its something i changed in the greengeeks zone editor. there has never been a website activated for my domain yet i dont think, i was going to try launch one with carrd and didnt realise it would affect emails no- and i have a feeling its something i changed in the greengeeks zone editor. there has never been a website activated for my domain yet i dont think, i was going to try launch one with carrd
+
+agent
+
+Ok, can you please confirm what changes you had made in the zone editor? I am seeing some misconfiguration but want to be sure what you attempted to do to avoid any other issue. It looks like you may have tried to update the A record for domain. Since emails are set to follow the domain, that must have broken your email setup.
+
+customer
+
+i followed along the lines of chatgpt, sorry!! "to add the A record in GreenGeeks for your domain psychologywithcharlotte.com (so it connects to Carrd), use the following: ✅ A Record for psychologywithcharlotte.com: Name (or Host): @ Type: A TTL: 3600 (or leave as default) IP Address (Value): 192.64.119.70 ✅ Steps to Add It in GreenGeeks: Log in to GreenGeeks Account Manager Go to Hosting → Manage for your website Under Domains, click DNS Zone Editor Choose your domain: psychologywithcharlotte.com Under the A Records section: If an A record for @ already exists, click Edit and replace the IP with 192.64.119.70 If not, click Add A Record and fill in: Name: @ TTL: 3600 Address: 192.64.119.70 Save your changes ⏱ DNS propagation can take 1–24 hours You can check progress at dnschecker.org by searching for A records for psychologywithcharlotte.com. Let me know when you're ready to add the CNAME record for www or if you want to keep email (MX) working too! Ask ChatGPT"
+
+agent
+
+Ok, A record IP is completely different here. But I am getting the right idea here. Let me update your email setup so that whatever you try with the domain for website, it doesn't affect emails. Please allow me a minute.
+
+customer
+
+thanks a million
+
+agent
+
+Just a heads up, in your message, chatGPT suggested to point A record for domain to 192.64.119.70, but I am seeing a different IP there. Do you want me to correct that as well?
+
+customer
+
+the IP chatgpt recommended was a dummy one no worries there
+
+agent
+
+Ah ok, I will leave it then. I have updated your MX records so they follow mail.psychologywithcharlotte.com instead of psychologywithcharlotte.com This will allow you to keep your email hosting and setup isolated from hosting setup for domain. Please allow some time for DNS propagation, 1-4 hours approx and you should see emails working again.
+
+customer
+
+thank you!
+
+agent
+
+Anytime 🙂 Let me know if you need help with anything else.
+
+customer
+
+all good, really appreciate how helpful youve been, hopefully smooth from here
+
+agent
+
+I am sure emails should be good with this. Feel free to reach out should you need further help with anything, we are here to help 🙂 Would you please rate this chat session before closing the chat window? This will help us to serve you better. Thanks for your time!!
+'''
+
+BENCHMARK ANALYSIS (follow this format and reasoning)
 
 {
-  "summary": {
-    "empathy_and_tone": "",
-    "communication_clarity": "",
-    "proactivity_and_ownership": "",
-    "flow_and_structure": "",
-    "grammar_and_professionalism": ""
+  "issue_summary": "Emails not being received due to DNS misconfiguration possibly caused by recent changes while attempting to connect domain to Carrd.",
+  "categories": {
+    "Empathy & Tone": {
+      "score": 5.0,
+      "comment": "Kurt maintained a highly empathetic tone throughout the chat, offering reassurance and clarity, especially when the customer expressed business loss and confusion."
+    },
+    "Communication Clarity": {
+      "score": 5.0,
+      "comment": "Instructions were well-structured and clearly delivered in manageable steps. Follow-up questions and clarifications were handled with patience and precision."
+    },
+    "Technical Accuracy": {
+      "score": 5.0,
+      "comment": "Diagnosed the DNS issue accurately and implemented a solid fix by isolating MX records from A records. Avoided overstepping by not making assumptions about third-party tools like Carrd."
+    },
+    "Proactivity & Ownership": {
+      "score": 5.0,
+      "comment": "Kurt took full ownership, actively guided the customer through the problem, and implemented the fix. Offered to assist further and clearly communicated next steps."
+    },
+    "Flow & Structure": {
+      "score": 5.0,
+      "comment": "Chat flowed naturally and logically. Questions were well-paced, and the transition between diagnosis, troubleshooting, and solution was smooth."
+    },
+    "Grammar/Professionalism": {
+      "score": 5.0,
+      "comment": "Grammar and tone were professional and friendly throughout. Human-like yet polished communication helped build trust."
+    }
   },
-  "what_went_well": [],
+  "what_went_well": [
+    "✅ Showed empathy at the start by acknowledging the impact on customer's business.",
+    "✅ Proactively requested Cloudflare access and offered full setup guidance.",
+    "✅ Provided a robust solution by redirecting MX to subdomain to preserve email regardless of future changes.",
+    "✅ Refrained from blaming the customer for using ChatGPT and instead used the info to clarify and resolve."
+  ],
   "what_can_be_improved": [],
-  "quick_tips": []
+  "final_rating": {
+    "score": 5.0,
+    "summary": "Excellent handling of a technically complex and emotionally sensitive issue. The agent was empathetic, accurate, and took complete ownership."
+  },
+  "tip": "Continue reinforcing confidence by briefly summarizing what was fixed and how it protects the customer's setup moving forward — this reassures less technical users."
 }
 
-Ensure your response is a valid JSON object, and does not contain any extra text outside the JSON.
+Return the output in a json in exactly the below format:
+
+{
+  "issue_summary": "",
+  "categories": {
+    "Empathy & Tone": {
+      "score": 5.0,
+      "comment": ""
+    },
+    "Communication Clarity": {
+      "score": 5.0,
+      "comment": ""
+    },
+    "Technical Accuracy": {
+      "score": 5.0,
+      "comment": ""
+    },
+    "Proactivity & Ownership": {
+      "score": 5.0,
+      "comment": ""
+    },
+    "Flow & Structure": {
+      "score": 5.0,
+      "comment": ""
+    },
+    "Grammar/Professionalism": {
+      "score": 5.0,
+      "comment": ""
+    }
+  },
+  "what_went_well": [
+    "✅ ..."
+  ],
+  "what_can_be_improved": [
+    {
+      "issue": "...",
+      "example": "...",
+      "suggestion": "..."
+    }
+  ],
+  "final_rating": {
+    "score": 5.0,
+    "summary": "..."
+  },
+  "tip": "..."
+}
