@@ -211,9 +211,9 @@ Return the output in a json in exactly the below format:
   ],
   "what_can_be_improved": [
     {
-      "issue": "...",
-      "example": "...",
-      "suggestion": "..."
+      "❌Issue": "...",
+      "🔍Example": "...",
+      "✔️Suggestion": "..."
     }
   ],
   "final_rating": {

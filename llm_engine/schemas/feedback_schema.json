@@ -32,14 +32,14 @@
   ],
   "what_can_be_improved": [
     {
-      "issue": "❌ [Issue summary]",
-      "example": "[Quote from chat]",
-      "suggestion": "[Improved version]"
+      "❌Issue": "[Issue summary]",
+      "🔎Example": "[Quote from chat]",
+      "✔️Suggestion": "[Improved version]"
     },
     {
-      "issue": "❌ [Issue summary]",
-      "example": "[Quote from chat]",
-      "suggestion": "[Improved version]"
+      "❌Issue": "[Issue summary]",
+      "🔎Example": "[Quote from chat]",
+      "✔️Suggestion": "[Improved version]"
     }
   ],
   "final_rating": {
