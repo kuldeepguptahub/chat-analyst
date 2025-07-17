@@ -16,6 +16,19 @@ if "raw_data" not in st.session_state:
     st.session_state.feedback = None
 
 # Sidebar
+
+st.markdown("""
+    <style>
+        [data-testid="stSidebar"] {
+            min-width: 600px;
+            max-width: 600px;
+        }
+        [data-testid="stSidebar"] > div:first-child {
+            padding-right: 1rem;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 with st.sidebar:
     st.title("Paste or Upload your chat here")
     input_text = st.text_area(label="Paste your chat here")
