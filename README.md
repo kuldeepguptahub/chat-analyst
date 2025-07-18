@@ -8,21 +8,21 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
 
 ## 🔍 What It Does
 
-✅ Parses raw customer support chats (copy-paste or file upload)
-✅ Preprocesses and formats the conversation
-✅ Uses an LLM to provide structured QA feedback
-✅ Displays raw, processed, and final evaluation reports
-✅ Works locally with minimal setup—privacy first!
+- ✅ Parses raw customer support chats (copy-paste or file upload)
+- ✅ Preprocesses and formats the conversation
+- ✅ Uses an LLM to provide structured QA feedback
+- ✅ Displays raw, processed, and final evaluation reports
+- ✅ Works locally with minimal setup—privacy first!
 
 ---
 
 ## 🚀 Features
 
-🧠 AI-Powered QA Evaluation: Uses Meta Llama Vision via Together.ai for detailed analysis.
-📝 Soft-Skill Assessment: Evaluates tone, professionalism, clarity, and flow.
-📂 Paste or Upload: Accepts direct input or .txt files.
-📊 Visual Output: Multiple tabs for chat, parsed data, and report card.
-🔒 Privacy-First: No data is stored or logged.
+- 🧠 AI-Powered QA Evaluation: Uses Meta Llama Vision via Together.ai for detailed analysis.
+- 📝 Soft-Skill Assessment: Evaluates tone, professionalism, clarity, and flow.
+- 📂 Paste or Upload: Accepts direct input or .txt files.
+- 📊 Visual Output: Multiple tabs for chat, parsed data, and report card.
+- 🔒 Privacy-First: No data is stored or logged.
 
 ---
 
@@ -51,7 +51,7 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
     pip install -r requirements.txt
 
 4. **Add your API key:**
-    ```ini
+    ```bash
     TOGETHER_API_KEY=your_together_api_key_here
 
 ## ▶️ Running the App
@@ -67,19 +67,19 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
     ├── prompts/               # Prompt templates
     ├── schemas/               # JSON structure for feedback
     ├── img/                   # UI screenshots
-    ├── .env                   # API key (not checked into git)
+    ├── .env.template          # Template file for API key
     ├── requirements.txt       # Python dependencies
     └── README.md              # This file
 
 ## 📌 Notes
 
-    💡 If the model output is invalid or malformed, fallback handling will trigger.
-    🛡 This app never stores your chats—only processes in-memory.
-    ⏱ Performance tested on chats up to ~5K tokens.
+- 💡 If the model output is invalid or malformed, fallback handling will trigger.
+- 🛡 This app never stores your chats—only processes in-memory.
+- ⏱ Performance tested on chats up to ~5K tokens.
 
 ## 📃 License
-    MIT License. Feel free to fork, use, or contribute!
+MIT License. Feel free to fork, use, or contribute!
 
 ## 🙋‍♂️ Author
-    Built by Kuldeep Gupta.
-    📧 Contact: kuldeep.gupta2603@gmail.com
+Built by Kuldeep Gupta.
+📧 Contact: kuldeep.gupta2603@gmail.com
