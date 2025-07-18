@@ -81,5 +81,5 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
 MIT License. Feel free to fork, use, or contribute!
 
 ## 🙋‍♂️ Author
-Built by Kuldeep Gupta.
-📧 Contact: kuldeep.gupta2603@gmail.com
+- Built by Kuldeep Gupta.
+- 📧 Contact: kuldeep.gupta2603@gmail.com
