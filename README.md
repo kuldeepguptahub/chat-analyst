@@ -8,21 +8,21 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
 
 ## 🔍 What It Does
 
-- ✅ Parses raw customer support chats (copy-paste or file upload)
-- ✅ Preprocesses and formats the conversation
-- ✅ Uses an LLM to provide structured QA feedback
-- ✅ Displays raw, processed, and final evaluation reports
-- ✅ Works locally with minimal setup—privacy first!
+✅ Parses raw customer support chats (copy-paste or file upload)
+✅ Preprocesses and formats the conversation
+✅ Uses an LLM to provide structured QA feedback
+✅ Displays raw, processed, and final evaluation reports
+✅ Works locally with minimal setup—privacy first!
 
 ---
 
 ## 🚀 Features
 
-- 🧠 AI-Powered QA Evaluation: Uses Meta Llama Vision via Together.ai for detailed analysis.
-- 📝 Soft-Skill Assessment: Evaluates tone, professionalism, clarity, and flow.
-- 📂 Paste or Upload: Accepts direct input or .txt files.
-- 📊 Visual Output: Multiple tabs for chat, parsed data, and report card.
-- 🔒 Privacy-First: No data is stored or logged.
+🧠 AI-Powered QA Evaluation: Uses Meta Llama Vision via Together.ai for detailed analysis.
+📝 Soft-Skill Assessment: Evaluates tone, professionalism, clarity, and flow.
+📂 Paste or Upload: Accepts direct input or .txt files.
+📊 Visual Output: Multiple tabs for chat, parsed data, and report card.
+🔒 Privacy-First: No data is stored or logged.
 
 ---
 
@@ -55,11 +55,10 @@ Chat-Analyst is a lightweight, privacy-conscious, AI-powered tool that evaluates
     TOGETHER_API_KEY=your_together_api_key_here
 
 ## ▶️ Running the App
-    ```bash
     streamlit run app.py
 
 ## 📂 Project Structure
-    ```bash
+    
     chat-analyst/
     │
     ├── app.py                 # Main Streamlit frontend
